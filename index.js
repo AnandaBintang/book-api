@@ -1,17 +1,13 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import authRoutes from './routes/auth.js';
-import userRoutes from './routes/users.js';
-import authorRoutes from './routes/authors.js';
+import routes from './routes/index.js';
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 
-app.use('/auth', authRoutes);
-app.use('/users', userRoutes);
-app.use('/authors', authorRoutes);
+app.use('/api', routes);
 
 app.get('/', (req, res) => {
     res.send('Welcome to the Book API');
